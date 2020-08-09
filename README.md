@@ -1,1 +1,1 @@
-Enterprise JavaScript II #contributors Professor Krasso - Bellevue University Micah Connelly - Bellevue University
+Repository for web-340 Node.js #contributors Professor Massoud - Bellevue University Micah Connelly - Bellevue University
