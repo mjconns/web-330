@@ -1,0 +1,33 @@
+<!--
+============================================
+; Title:  Assignment 4.2
+; Author: Professor Kraso
+; Modified: Micah Connelly
+; Date: 8/30/2020
+; Description: Assignment 4.2 – HTTP GET and POST Operations
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 4.2</title>
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="getDogs">Get Random Dog Breed</button>
+
+    <script>
+        $('#getDogs').click(function () {
+            $.get('https://dog.ceo/api/breeds/image/random', function (data, status) {
+                console.log(data, status);
+            })
+        });
+    </script>
+</body>
+
+</html>
