@@ -1,0 +1,47 @@
+<!--
+============================================
+; Title:  Assignment 4.3
+; Author: Professor Kraso
+; Modified: Micah Connelly
+; Date: 8/30/2020
+; Description: Assignment 4.3 – HTTP PUT and DELETE Operations
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 4.3</title>
+
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <button id="delFoo">Delete Order</button>
+    <script>
+        $('#delFoo').click(function () {
+            $.ajax({
+                url: "http://httpbin.org/delete",
+                dataType: "json",
+                type: "DELETE",
+                data: {
+                    meal1: "Salad",
+                    meal2: "Steak",
+                    meal3: "Salmon"
+                },
+                success: function (data, status) {
+                    console.log(data);
+                    console.log("Meal 1: " + data.form.meal1 + "\nMeal 2: " +
+                        data.form.meal2 + "\nMeal 3: " + data.form.meal3 + "\nStatus: " + status
+                        );
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>
