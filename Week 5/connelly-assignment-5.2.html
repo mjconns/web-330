@@ -1,0 +1,62 @@
+<!--
+============================================
+; Title:  Assignment 5.2
+; Author: Professor Kraso
+; Modified: Micah Connelly
+; Date: 8/30/2020
+; Description: Assignment 5.2 – The Proxy Pattern
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5.2 - The Proxy Pattern</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="#">Home</a>
+    </nav>
+    <br /> <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Assignment 5.2 - The Proxy Pattern</h2>
+                <button id="btnExample" class="btn btn-warning">Preview Proxy</button>
+                <br />
+                <span id="spanProxyResults"></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var animal = {
+                species: "Dog",
+                breed: "Lab",
+                display: function () {
+                    //clears the span tag
+                    $("#spanProxyResults").html("");
+
+                    //inserts new html and variables
+                    $("#spanProxyResults").append("<br />Species: " + this.species + "<br />Breed: " +
+                        this.breed);
+                }
+            };
+            // click event and call objext
+            $("#btnExample").click($.proxy(animal, "display"));
+
+        });
+    </script>
+</body>
+
+</html>
