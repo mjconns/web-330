@@ -1,0 +1,76 @@
+<!--
+============================================
+; Title:  Assignment 7.2
+; Author: Professor Kraso
+; Modified: Micah Connelly
+; Date: 9/19/2020
+; Description: Assignment 7.2 – The "if" Binding
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Exercise 7.2</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <!-- Knockout script-->
+    <script src="../knockout-v3.5.1.js"></script>
+</head>
+
+<body>
+    <div role="main" class="container">
+        <br />
+        <br />
+        <h2>Assignment 7.2 Example</h2>
+
+        <div class="form-group">
+            <label for="firstName">First Name: </label>
+            <input type="text" data-bind="value: firstName" class="form-control" id="firstName" />
+        </div>
+
+        <div data-bind="if: firstName">
+            <div class="form-group">
+                <label for="lastName">Last Name: </label>
+                <input type="text" data-bind="value: lastName" class="form-control" id="lastName" />
+            </div>
+        </div>
+
+        <br />
+
+        <div data-bind="if: lastName">
+            <h2>
+                <span id="fullName" class="alert-success" data-bind="text: fullName">
+                </span>
+            </h2>
+        </div>
+
+        <br />
+    </div>
+
+    <script>
+        function PersonViewModel() {
+
+            this.firstName = ko.observable("");
+            this.lastName = ko.observable("");
+
+            this.fullName = ko.pureComputed(function () {
+                return this.firstName() + " " + this.lastName();
+            }, this);
+        }
+
+        ko.applyBindings(new PersonViewModel());
+    </script>
+</body>
+
+</html>
